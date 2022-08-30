@@ -19,18 +19,23 @@ namespace BotRegata.Models.Commands
 
         public override async Task Execute(Message message, TelegramBotClient botClient)
         {
-            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(new[]
+            var keyboard = new InlineKeyboardMarkup(new[]
             {
-                new KeyboardButton[] { "One", "Two" },
-                new KeyboardButton[] { "Three", "Four" },
-            })
-            {
-                ResizeKeyboard = true
-            };
+                new [] // first row
+                {
+                    InlineKeyboardButton.WithUrl("1.1","www.google.com"),
+                    InlineKeyboardButton.WithCallbackData("1.2"),
+                },
+                new [] // second row
+                {
+                    InlineKeyboardButton.WithCallbackData("2.1"),
+                    InlineKeyboardButton.WithCallbackData("2.2"),
+                }
+            });
             var chatId = message.Chat.Id;
             await botClient.SendTextMessageAsync(chatId, "Привет я бот для ведения Регаты", 
                                                  parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown,
-                                                 replyMarkup: replyKeyboardMarkup);
+                                                 replyMarkup: keyboard);
         }
     }
 }
