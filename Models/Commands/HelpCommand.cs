@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace BotRegata.Models.Commands
 {
@@ -18,8 +19,18 @@ namespace BotRegata.Models.Commands
 
         public override async Task Execute(Message message, TelegramBotClient botClient)
         {
+            ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(new[]
+            {
+                new KeyboardButton[] { "One", "Two" },
+                new KeyboardButton[] { "Three", "Four" },
+            })
+            {
+                ResizeKeyboard = true
+            };
             var chatId = message.Chat.Id;
-            await botClient.SendTextMessageAsync(chatId, "Мои команды:\n Пока только \n /start \n /help", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
+            await botClient.SendTextMessageAsync(chatId, "Мои команды:\n/start \n/help", 
+                                                 parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown, 
+                                                 replyMarkup: replyKeyboardMarkup);
         }
     }
 }
