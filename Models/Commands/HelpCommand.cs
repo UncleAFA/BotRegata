@@ -19,7 +19,7 @@ namespace BotRegata.Models.Commands
         public override async Task Execute(Message message, TelegramBotClient botClient)
         {
             var chatId = message.Chat.Id;
-            await botClient.SendTextMessageAsync(chatId, "Hallo I'm ASP.NET Core Bot", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
+            await botClient.SendTextMessageAsync(chatId, "Мои команды:\n Пока только \n /start \n /help", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
         }
     }
 }
