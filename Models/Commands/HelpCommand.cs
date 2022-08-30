@@ -4,9 +4,9 @@ using Telegram.Bot.Types;
 
 namespace BotRegata.Models.Commands
 {
-    public class StartCommand : Command
+    public class HelpCommand : Command
     {
-        public override string Name => @"/start";
+        public override string Name => @"/help";
 
         public override bool Contains(Message message)
         {
@@ -19,7 +19,7 @@ namespace BotRegata.Models.Commands
         public override async Task Execute(Message message, TelegramBotClient botClient)
         {
             var chatId = message.Chat.Id;
-            await botClient.SendTextMessageAsync(chatId, "Привет я бот для ведения Регаты", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
+            await botClient.SendTextMessageAsync(chatId, "Hallo I'm ASP.NET Core Bot", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
         }
     }
 }
