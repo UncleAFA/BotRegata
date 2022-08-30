@@ -23,6 +23,7 @@ namespace BotRegata.Models
 
             commandsList = new List<Command>();
             commandsList.Add(new StartCommand());
+            commandsList.Add(new HelpCommand());
             //TODO: Add more commands
 
             botClient = new TelegramBotClient(AppSettings.Key);
