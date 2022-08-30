@@ -9,7 +9,7 @@ namespace BotRegata.Controllers
     [Route("api/message/update")]
     public class MessageController : Controller
     {
-        // GET api/values
+        // GET api/valuesd
         [HttpGet]
         public string Get()
         {
