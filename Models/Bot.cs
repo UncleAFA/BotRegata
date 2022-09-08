@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using BotRegata.Models.Commands;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace BotRegata.Models
 {
@@ -24,6 +25,8 @@ namespace BotRegata.Models
             commandsList = new List<Command>();
             commandsList.Add(new StartCommand());
             commandsList.Add(new HelpCommand());
+            commandsList.Add(new AddCommand());
+
             //TODO: Add more commands
 
             botClient = new TelegramBotClient(AppSettings.Key);
