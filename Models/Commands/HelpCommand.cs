@@ -20,7 +20,7 @@ namespace BotRegata.Models.Commands
         public override async Task Execute(Message message, TelegramBotClient botClient)
         {
             var chatId = message.Chat.Id;
-            await botClient.SendTextMessageAsync(chatId, "Мои команды:\n/start - Старт(приветствие) \n/help - помощь  \n/add - добавление новой записи \n/ShowAll - показать баллы всех учеников", 
+            await botClient.SendTextMessageAsync(chatId, "Мои команды:\n/start - Старт(приветствие) \n/help - помощь  \n/add - добавление новой записи \n/showall - показать баллы всех учеников", 
                                                  parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
         }
     }

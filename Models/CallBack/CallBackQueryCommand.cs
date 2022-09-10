@@ -65,6 +65,8 @@ namespace BotRegata.Models.CallBack
                         conn.Close(); //Закрываем соединение.
                         await botClient.SendTextMessageAsync(chatId, $"Данные занесены",
                                                  parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
+                        await botClient.SendTextMessageAsync(466206177, $" #Занесенные Данные : ('{InsertList[message.Message.Chat.Id].Fio}','{InsertList[message.Message.Chat.Id].Points}','{InsertList[message.Message.Chat.Id].Details}','{InsertList[message.Message.Chat.Id].Date}')",
+                                                 parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
                         StateList[message.Message.Chat.Id] = State.None;
                         InsertList[message.Message.Chat.Id] = new InserLine();
                         return;

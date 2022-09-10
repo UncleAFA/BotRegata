@@ -5,7 +5,7 @@ namespace BotRegata.Models
     public static class AppSettings
     {
         //Test URL
-        //public static string Url { get; set; } = "https://f26a-90-154-71-80.eu.ngrok.io" + "/{0}";
+        //public static string Url { get; set; } = "https://3819-90-154-71-80.eu.ngrok.io" + "/{0}";
         //public static string Name { get; set; } = "AFA_BOT_TODO_BOT";
         //public static string Key { get; set; } = "2044514869:AAF9wjbsxGXl0SgkMSyeNxpKFRcL28OfFXQ";
 

@@ -60,7 +60,7 @@ namespace BotRegata.Models.Commands
             string MessText = message.Text;
             if (MessText[0] == '+' || MessText[0] == '-')
             {
-                if (float.TryParse(MessText.Remove(0, 1),out float res))
+                if (float.TryParse(MessText, out float res))
                 {
                     var Persone = InsertList[message.Chat.Id];
                     Persone.Points = message.Text;

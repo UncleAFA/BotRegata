@@ -10,7 +10,7 @@ namespace BotRegata.Models.Commands
     public class ShowAllCommand : Command
     {
         
-         public override string Name => @"/ShowAll";
+         public override string Name => @"/showall";
 
         public override bool Contains(Message message)
         {
@@ -73,16 +73,15 @@ namespace BotRegata.Models.Commands
                 {
                     if (us.Fio == Students[i])
                     {
-                        if (us.Points[0] == '+' )
-                        {
-                            Score[i] += float.Parse( us.Points.Remove(0, 1));
-                            Score[13] += float.Parse(us.Points.Remove(0, 1));
-                        }
-                        if (us.Points[0] == '-')
-                        {
-                            Score[i] -= float.Parse(us.Points.Remove(0, 1));
-                            Score[13] -= float.Parse(us.Points.Remove(0, 1));
-                        }
+                        Score[i] += float.Parse(us.Points);
+                        //if (us.Points[0] == '+' )
+                        //{
+                        //    Score[i] += float.Parse( us.Points.Remove(0, 1));
+                        //}
+                        //if (us.Points[0] == '-')
+                        //{
+                        //    Score[i] -= float.Parse(us.Points.Remove(0, 1));
+                        //}
                     }
                 }
             }
@@ -90,6 +89,12 @@ namespace BotRegata.Models.Commands
             {
                     result += $"{Students[i]} === {Score[i]}\n";
             }
+            float total = 0;
+            for (int i = 0; i < Score.Length; i++)
+            {
+                total += Score[i];
+            }
+            result += $"Всего === {total}|хххх";
             var chatId = message.Chat.Id;
             await botClient.SendTextMessageAsync(chatId, result,
                                                  parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown
