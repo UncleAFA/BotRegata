@@ -65,6 +65,11 @@ namespace BotRegata.Models.Commands
             con.Close();
             g[i] = new[]
                     {
+                        InlineKeyboardButton.WithCallbackData("Весь класс","Весь класс"),
+                    };
+            i++;
+            g[i] = new[]
+                    {
                         InlineKeyboardButton.WithCallbackData("Отмена","Отмена"),
                     };
             return g;
