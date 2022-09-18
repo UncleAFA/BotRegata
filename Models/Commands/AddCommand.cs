@@ -37,7 +37,7 @@ namespace BotRegata.Models.Commands
         public InlineKeyboardButton[][] InlineKey()
         {
 
-            InlineKeyboardButton[][] g = new InlineKeyboardButton[16][];
+            InlineKeyboardButton[][] g = new InlineKeyboardButton[15][];
             string result = "";
             const string conn_param = "Server=ec2-44-210-36-247.compute-1.amazonaws.com;Port=5432;UserId=yynhdunqmjakst;Password=b2eee22357bd873fb6bac4f520e7e9734caab9ec36c44d473075ee0af9649517;Database=dal8m5kgg404j1;";//Строка подключения к базе
             NpgsqlConnection con = new NpgsqlConnection(conn_param);
