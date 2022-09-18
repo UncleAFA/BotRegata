@@ -74,9 +74,11 @@ namespace BotRegata.Models.Commands
 
             List<InserLine> UserScore = new List<InserLine>();
             {
+                var date1 = DateTime.Parse(Dates[0]);
+                var date2 = DateTime.Parse(Dates[1]);
                 const string conn_param = "Server=ec2-44-210-36-247.compute-1.amazonaws.com;Port=5432;UserId=yynhdunqmjakst;Password=b2eee22357bd873fb6bac4f520e7e9734caab9ec36c44d473075ee0af9649517;Database=dal8m5kgg404j1;";//Строка подключения к базе
                 NpgsqlConnection con = new NpgsqlConnection(conn_param);
-                NpgsqlCommand com = new NpgsqlCommand($"select fio,points from listrecords WHERE date BETWEEN '{Dates[0]}' AND '{Dates[1]}'", con);
+                NpgsqlCommand com = new NpgsqlCommand($"select fio,points from listrecords WHERE date BETWEEN '{date1.Month}.{date1.Day}.{date1.Year}' AND '{date2.Month}.{date2.Day}.{date2.Year}'", con);
                 con.Open();
                 NpgsqlDataReader reader;
                 reader = com.ExecuteReader();
