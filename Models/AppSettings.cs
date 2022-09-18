@@ -24,7 +24,8 @@ namespace BotRegata.Models
             Points,
             Details,
             Confirm,
-            ShowNamePoint
+            ShowNamePoint,
+            GetDates
         }
     }
 }

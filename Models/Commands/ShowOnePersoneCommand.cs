@@ -70,7 +70,7 @@ namespace BotRegata.Models.Commands
             i++;
             g[i] = new[]
                     {
-                        InlineKeyboardButton.WithCallbackData("Запси за все время","Запси за все время"),
+                        InlineKeyboardButton.WithCallbackData("Записи за все время","Запси за все время"),
                     };
             i++;
             g[i] = new[]

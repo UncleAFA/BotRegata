@@ -92,6 +92,7 @@ namespace BotRegata.Models.CallBack
             await botClient.SendTextMessageAsync(chatId, $"Вы выбрали: {message.Data}\n Введите количество баллов(пример:+5,9 или -5,8)",
                                                  parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
         }
+       
 
         internal async Task ShowNamePoint(CallbackQuery message, TelegramBotClient botClient)
         {
@@ -124,6 +125,10 @@ namespace BotRegata.Models.CallBack
             foreach (var item in ListData)
             {
                 OutText += $"{item.Fio}    {item.Points}  -  {item.Details}  -  {item.Date.ToShortDateString()} \n";
+            }
+            if (OutText == "")
+            {
+                OutText = "Записи отсутствуют";
             }
             System.IO.File.WriteAllText(Environment.CurrentDirectory + $@"\file{message.Message.Chat.Id}.txt", OutText);
             using (var stream = System.IO.File.OpenRead(Environment.CurrentDirectory + $@"\file{message.Message.Chat.Id}.txt"))

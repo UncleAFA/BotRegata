@@ -28,7 +28,7 @@ namespace BotRegata.Models
             commandsList.Add(new AddCommand());
             commandsList.Add(new ShowAllCommand());
             commandsList.Add(new ShowOnePersoneCommand());
-            
+            commandsList.Add(new ShowAllDatseCommand());
 
             //TODO: Add more commands
 
