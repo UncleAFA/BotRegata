@@ -23,7 +23,7 @@ namespace BotRegata.Models.Commands
         public override async Task Execute(Message message, TelegramBotClient botClient)
         {
             var chatId = message.Chat.Id;
-            await botClient.SendTextMessageAsync(chatId, "Введите две даты в формате(ММ.ДД.ГГГГ ММ.ДД.ГГГГ)",
+            await botClient.SendTextMessageAsync(chatId, "Введите две даты в формате(ММ.ДД.ГГГГ ММ.ДД.ГГГГ) \nДля отмены ведите - Отмена",
                                                  parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown
                                                  );
             AppSettings.StateList[chatId] = AppSettings.State.GetDates;

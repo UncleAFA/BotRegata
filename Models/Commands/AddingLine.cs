@@ -34,7 +34,16 @@ namespace BotRegata.Models.Commands
         }
         internal async Task ShowDatesStat(Message message, TelegramBotClient botClient)
         {
+            
             var chatId = message.Chat.Id;
+            if (message.Text == "Отмена")
+            {
+                await botClient.SendTextMessageAsync(chatId, "Я все отменил",
+                                                 parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown
+                                                 );
+                StateList[message.Chat.Id] = State.None;
+                return;
+            }
             string[] Dates = message.Text.Split(" ");
             if (Dates.Length != 2)
             {
