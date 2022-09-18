@@ -34,11 +34,22 @@ namespace BotRegata.Models.Commands
         }
         internal async Task ShowDatesStat(Message message, TelegramBotClient botClient)
         {
+            var chatId = message.Chat.Id;
             string[] Dates = message.Text.Split(" ");
             if (Dates.Length != 2)
+            {
+                await botClient.SendTextMessageAsync(chatId, "Даты должны быть через пробел",
+                                                 parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown
+                                                 );
                 return;
+            }
             if (!DateTime.TryParse(Dates[0], out DateTime res1) & !DateTime.TryParse(Dates[1], out DateTime res2))
+            {
+                await botClient.SendTextMessageAsync(chatId, "Введите две даты в формате(ММ.ДД.ГГГГ ММ.ДД.ГГГГ)",
+                                                 parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown
+                                                 );
                 return;
+            }
 
             List<string> Students = new List<string>();
             {
@@ -114,7 +125,7 @@ namespace BotRegata.Models.Commands
                 total += Score[i];
             }
             result += $"Всего === {total}|{13 * 90}";//TODO:надо сделать так что бы {13*90} считалось так что 13(кол детей) бралось из таблицы детей и 90(путь регаты туда обратно) тоже брался из таблицы сетингс(в будужем надо сделать)
-            var chatId = message.Chat.Id;
+            
             await botClient.SendTextMessageAsync(chatId, result,
                                                  parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown
                                                  );
