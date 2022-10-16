@@ -94,7 +94,7 @@ namespace BotRegata.Models.Commands
             {
                 total += Score[i];
             }
-            result += $"Всего === {total}|{13*90}";//TODO:надо сделать так что бы {13*90} считалось так что 13(кол детей) бралось из таблицы детей и 90(путь регаты туда обратно) тоже брался из таблицы сетингс(в будужем надо сделать)
+            result += $"Всего === {total}|{13*92}";//TODO:надо сделать так что бы {13*90} считалось так что 13(кол детей) бралось из таблицы детей и 90(путь регаты туда обратно) тоже брался из таблицы сетингс(в будужем надо сделать)
             var chatId = message.Chat.Id;
             await botClient.SendTextMessageAsync(chatId, result,
                                                  parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown
